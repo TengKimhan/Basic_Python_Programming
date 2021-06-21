@@ -39,13 +39,25 @@
 # iii. If you reply "no" then it should continue and ask "are you tired" on every km
 # iv. If you finish all 5 km then it should print congratulations message
 
-for i in range(5):
-    users = input("Are you tired?")
-    if users == "yes":
-        print("you didn't finish the race")
-        break
-    else:
-        continue
+# for i in range(5):
+#     users = input("Are you tired?")
+#     if users == "yes":
+#         print("you didn't finish the race")
+#         break
+#     else:
+#         continue
+#
+# if i == 4:
+#     print("Congratulation")
 
-if i == 4:
-    print("Congratulation")
+# 5. Write a program that prints following shape
+# *
+# **
+# ***
+# ****
+# *****
+for i in range(6):
+    s = ""
+    for j in range(i):
+        s += "*"
+    print(s)
