@@ -46,3 +46,26 @@ for key, value in word_value.items():
 
 # pe ratio = price / earnings per share
 # price to book ratio = price / book value
+import csv
+
+dic = {} # key "Company Name", "PE Ratio", "PB Ratio"
+
+with open("stocks.csv", "r") as f:
+    with open("output.csv", "w", newline="") as o:
+        fieldName = ["Company Name", "PE Ratio", "PB Ratio"]
+        writer = csv.DictWriter(o, fieldnames=fieldName) # user DictWrite() to write csv file with dictionary
+        writer.writeheader() # include header with fieldname that already included
+
+        for row in csv.DictReader(f): # DictReader() to read dictionary
+            pe_ratio = int(row["Price"]) / int(row["Earnings Per Share"])
+            price_to_book_ratio = int(row["Price"]) / int(row[" Book Value"])
+            company_name = row["Company Name"]
+
+            dic["Company Name"] = company_name
+            dic["PE Ratio"] = round(pe_ratio, 2)
+            dic["PB Ratio"] = round(price_to_book_ratio, 2)
+
+            writer.writerow(dic) # write to each row
+
+
+
